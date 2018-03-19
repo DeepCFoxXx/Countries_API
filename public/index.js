@@ -11,6 +11,16 @@ var getCountries = function() {
   return countries;
 };
 
+var populateSelectBox = function(countries) {
+  var selectBox = document.querySelector('#countries-dropdown');
+  countries.forEach(function(country, index){
+    var option = document.createElement('option');
+    option.innerText = country.name;
+    option.value = index;
+    selectBox.appendChild(option);
+  })
+};
+
 var requestComplete = function() {
   if (this.status !== 200){
     return;
