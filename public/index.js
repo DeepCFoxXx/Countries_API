@@ -51,6 +51,22 @@ var getNeighbouringCountries = function(country) {
   return neighbouringCountriesArray;
 };
 
+var displayNeighbouringCountriesInfo = function(array) {
+  ul = document.querySelector('#neighbouring-countries');
+  ul.innerHTML = ""
+  array.forEach(function(country) {
+    var li1 = document.createElement('li');
+    var li2 = document.createElement('li');
+    var li3 = document.createElement('li');
+    li1.innerText = "Name: " + country.name;
+    li2.innerText = "Population: " + country.population;
+    li3.innerText = "Capital City: " + country.capital;
+    ul.appendChild(li1);
+    ul.appendChild(li2);
+    ul.appendChild(li3);
+  })
+};
+
 var requestComplete = function() {
   if (this.status !== 200){
     return;
