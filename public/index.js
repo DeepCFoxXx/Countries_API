@@ -41,6 +41,16 @@ var displayInfo = function() {
   localStorage.setItem('country', jsonString);
 };
 
+var getNeighbouringCountries = function(country) {
+  var neighbouringCountries = country.borders;
+  var neighbouringCountriesArray = [];
+  neighbouringCountries.forEach(function(countryCode) {
+    var country = getCountryByAlphaCode(countryCode);
+    neighbouringCountriesArray.push(country);
+  })
+  return neighbouringCountriesArray;
+};
+
 var requestComplete = function() {
   if (this.status !== 200){
     return;
