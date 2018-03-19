@@ -21,6 +21,26 @@ var populateSelectBox = function(countries) {
   })
 };
 
+var displayInfo = function() {
+  countries = getCountries();
+  country = countries[this.value];
+  var ul = document.querySelector('#country-info');
+  ul.innerHTML = ""
+  var li1 = document.createElement('li');
+  var li2 = document.createElement('li');
+  var li3 = document.createElement('li');
+  li1.innerText = "Name: " + country.name;
+  li2.innerText = "Population: " + country.population;
+  li3.innerText = "Capital City: " + country.capital;
+  ul.appendChild(li1);
+  ul.appendChild(li2);
+  ul.appendChild(li3);
+  array = getNeighbouringCountries(country);
+  displayNeighbouringCountriesInfo(array);
+  jsonString = JSON.stringify(country);
+  localStorage.setItem('country', jsonString);
+};
+
 var requestComplete = function() {
   if (this.status !== 200){
     return;
