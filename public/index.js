@@ -5,6 +5,16 @@ var makeRequest = function(url, callback) {
   request.send();
 };
 
+var requestComplete = function() {
+  if (this.status !== 200){
+    return;
+  }
+  localStorage.setItem('countries', this.responseText)
+  var jsonString = this.responseText;
+  var countries = JSON.parse(jsonString);
+  populateSelectBox(countries);
+};
+
 var app = function() {
   var url = 'https://restcountries.eu/rest/v2';
   makeRequest(url, requestComplete);
