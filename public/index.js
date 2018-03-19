@@ -5,6 +5,12 @@ var makeRequest = function(url, callback) {
   request.send();
 };
 
-
+var app = function() {
+  var url = 'https://restcountries.eu/rest/v2';
+  makeRequest(url, requestComplete);
+  var selection = document.querySelector('#countries-dropdown');
+  selection.addEventListener('change', displayInfo);
+  console.log(getCountryByAlphaCode("FRA"));
+};
 
 window.addEventListener('load', app);
