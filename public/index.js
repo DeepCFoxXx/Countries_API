@@ -5,6 +5,12 @@ var makeRequest = function(url, callback) {
   request.send();
 };
 
+var getCountries = function() {
+  jsonString = localStorage.getItem('countries');
+  countries = JSON.parse(jsonString);
+  return countries;
+};
+
 var requestComplete = function() {
   if (this.status !== 200){
     return;
