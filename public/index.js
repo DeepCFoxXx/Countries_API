@@ -31,6 +31,13 @@ var requestComplete = function() {
   populateSelectBox(countries);
 };
 
+var getCountryByAlphaCode = function(alphaCode) {
+  countries = getCountries();
+  var countryArray = countries.filter(country => country.alpha3Code === alphaCode)
+  console.log(countryArray);
+  return countryArray[0];
+};
+
 var app = function() {
   var url = 'https://restcountries.eu/rest/v2';
   makeRequest(url, requestComplete);
