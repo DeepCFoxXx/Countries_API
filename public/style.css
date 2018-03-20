@@ -1,11 +1,19 @@
 body {
   background-image: url("http://www.hdfondos.eu/preview/get_photo/397228/2048/1152");
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   background-size: cover;
-  align-items: center;
-  align-self: center;
-  align-content: center;
   position:absolute;
   top:40px;
   right:345px;
+}
+
+h1 {
+  font-size: 30px;
+  text-decoration: underline;
+  color: white;
+  text-align: center;
+}
+
+li {
+  color: white;
 }
